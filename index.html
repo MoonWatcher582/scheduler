@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Scheduler</title>
+		<link rel="stylesheet" href="style.css">
+		<script
+			src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js">
+		</script>
+		<script
+			src="timeset.js">
+		</script>
+		<?php
+			include_once('jcart/jcart.php');
+			if(!isset($_SESSION)){
+				session_start();
+			}
+		?>
+	</head>
+	<body>
+		<h1> Build Your Weekly Schedule! </h1>
+
+		<form method="post" action="">
+			<fieldset>
+				<ul>
+					<li><strong>Event</strong></li>
+					<li>
+						<label> Day: </label><br />
+						<label> <input type="checkbox" name="sun"> Sunday </label><br />	
+						<label> <input type="checkbox" name="mon"> Monday </label><br />
+						<label> <input type="checkbox" name="tue"> Tuesday </label><br />
+						<label> <input type="checkbox" name="wed"> Wednesday </label><br />
+						<label> <input type="checkbox" name="thu"> Thursday </label><br />
+						<label> <input type="checkbox" name="fri"> Friday </label><br />
+						<label> <input type="checkbox" name="sat"> Saturday </label>
+					</li>
+					<li>
+						<label> Time: </label>
+						<br />
+						<label> From <input type="text" name="time" value="12:00" size="5" /> </label>
+						<label> <input type="radio" name="fromTime" value="AM" checked> AM </label>
+						<label> <input type="radio" name="fromTime" value="PM"> PM </label>
+						<br />
+						<label> To <input type="text" name="time" value="12:00" size="5" /> </label>
+						<label> <input type="radio" name="toTime" value="AM" checked> AM </label>
+						<label> <input type="radio" name="toTime" value="PM"> PM </label>
+					</li>
+				</ul>
+				
+				<input type="submit"  name="add-button" value="Add Event" class="button" />
+
+				<div id="jcart"><?php $jcart->display_cart();?></div>
+			</fieldset>
+		</form>
+	</body>
+</html>
+		
